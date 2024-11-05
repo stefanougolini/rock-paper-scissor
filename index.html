@@ -3,10 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
 <body>
+    <div class="top">
+        <h1 style="text-align: center;"> Rock Paper Scissors</h1>
+        <h3>Welcome <span id="playerName"></span> to Rock, Paper, Scissors. Click the buttons to start playing. </h3>
+    </div>
+    <div class="center">
 
+        <div class="center-left">
+            <h2 id="playerName"> </h2>
+                <div id="buttons-div">
+                    <button id="Rock">Rock</button>
+                    <button id="Paper">Paper</button>
+                    <button id="Scissors">Scissors</button>
+                </div>
+                <p id="playerChoice">  </p>
+        </div>
+        <div class="center-right">
+            <h2 class="computerName"> Computer </h2>
+                <div class="buttons-div-pc">
+                    <button>Rock</button>
+                    <button>Paper</button>
+                    <button>Scissors</button>
+                </div>
+                <p id="computerChoice">  </p>
+            
+        </div>
+        
+    </div>
+    <div class="bottom">
+        <div id="win-message">Win-Message</div>
+        <div class="stats">
+            <div id="wins">Wins : 0</div>
+            <div id="draws">Draws: 0</div>
+            <div id="losses">Losses : 0</div>
+        </div>
+
+    </div>
     <script src="script.js"></script>
     
 </body>

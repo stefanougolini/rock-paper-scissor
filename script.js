@@ -36,18 +36,47 @@ function playGame(humanChoice, computerChoice) {
     else if (humanChoice === "Scissors" && computerChoice === "Rock") {winner = -1;}
     else if (humanChoice === "Scissors" && computerChoice === "Paper") {winner = 1;}
 
-
-
-    return winner;
+    if (winner === 1) {winMessageDiv.textContent = `You won!`; wins++; winsStatsDiv.textContent = `Wins: ${wins}`;}
+    if (winner === -1) {winMessageDiv.textContent = `You lost!`; lost++; lossesStatsDiv.textContent = `Losses: ${lost}`;}
+    if (winner === 0) {winMessageDiv.textContent = `This was a draw!`; draw++; drawsStatsDiv.textContent = `Draws: ${draw}`;}
     
 }
 
 let wins = 0;
 let lost = 0;
 let draw = 0;
-alert("Welcome to Rock Paper Scissor, let's start!")
-mainUI();
-alert("Thank you for playing.")
+const playerName = prompt("Welcome to Rock Paper Scissor, what's your name?");
+const playerNameElements = document.querySelectorAll("#playerName");
+playerNameElements.forEach((item) => { item.textContent = playerName; });
+const playerChoiceElement = document.querySelector("#playerChoice");
+const computerChoiceElement = document.querySelector("#computerChoice")
+const winMessageDiv = document.querySelector("#win-message");
+const winsStatsDiv = document.querySelector("#wins");
+const drawsStatsDiv = document.querySelector("#draws");
+const lossesStatsDiv = document.querySelector("#losses")
+let playerChoice = "ciao";
+
+const playerButtonsDiv = document.querySelector("#buttons-div");
+playerButtonsDiv.addEventListener('click', onChoice);
+
+
+
+//mainUI();
+
+function onChoice(event) {
+    playerChoice = event.target.id;
+    playerChoiceElement.textContent = playerChoice;
+    let computerChoice = getComputerChoice();
+    setTimeout(()=> {computerChoiceElement.textContent = ".";}, 500);
+    setTimeout(()=> {computerChoiceElement.textContent = "..";}, 1000);
+    setTimeout(()=> {computerChoiceElement.textContent = "...";}, 1500);
+
+    setTimeout(()=> {computerChoiceElement.textContent = computerChoice;}, 3000);
+    setTimeout( () => { playGame(playerChoice, computerChoice); }, 3200); 
+
+
+
+}
 
 
 function mainUI() {
